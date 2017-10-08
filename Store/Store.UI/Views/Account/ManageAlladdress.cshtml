@@ -1,0 +1,28 @@
+﻿
+<h3>Addresses</h3>
+<table class="table">
+     <tbody>
+        <tr>
+            <td>
+                <span>
+                    <b style="font-size: 14px;">Registration address:</b>
+                    Your main contact address
+                </span>
+            </br>
+            <h6>This is your main contact address, so it's important to keep it up to date and accurate.</h6>
+            </td>
+            <td>@Html.ActionLink("Change", "ManageAddress", "Account", new { AType = 1 }, new { @class = "btn btn-primary" })</td>
+        </tr> 
+        <tr>
+            <td><span>
+                    <b style="font-size: 14px;">Primary shipping address:</b> 
+                    Your main shipping address for purchases
+                </span>
+                </br>
+                <h6>This is where you'd like to receive items you purchase.</h6>
+            </td>
+            <td>@Html.ActionLink("Change", "ManageAddress", "Account", new { AType = 2 }, new { @class="btn btn-primary" })</td>
+        </tr>
+    </tbody>
+</table>
+

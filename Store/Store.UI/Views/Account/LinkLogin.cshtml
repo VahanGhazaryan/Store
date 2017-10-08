@@ -1,0 +1,21 @@
+﻿
+@Html.DevExpress().PageControl(settings =>
+{
+    settings.Name = "PageControl1";
+    settings.TabPages.Add("Tab 0").SetContent(() =>
+    {
+        ViewContext.Writer.Write("Page content 0");
+    });
+    settings.TabPages.Add("Tab 1").SetContent(() =>
+    {
+        ViewContext.Writer.Write("Page content 1");
+    });
+    settings.TabPages.Add("Tab 2").SetContent(() =>
+    {
+        ViewContext.Writer.Write("Page content 2");
+    });
+    settings.TabPages.Add("Tab 3").SetContent(() =>
+    {
+        ViewContext.Writer.Write("Page content 3");
+    });
+}).GetHtml()

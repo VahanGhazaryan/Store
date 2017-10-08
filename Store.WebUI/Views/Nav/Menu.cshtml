@@ -1,0 +1,22 @@
+﻿@model Dictionary<int,string>
+
+    @Html.ActionLink("Home", "List", "Product", null, new {@class = "btn btn-block btn-default btn-lg"})
+
+
+    @foreach (var link in Model)
+    {
+    @Html.RouteLink(link.Value, new
+    {
+    controller = "Product",
+    action = "List",
+    categoryId = link.Key,
+    page = 1
+    },
+    new
+    {
+    @class = "btn btn-block btn-default btn-lg"
+    + (link.Value == ViewBag.SelectedCategory ? " btn-primary" : "")
+    }
+    )
+    }
+

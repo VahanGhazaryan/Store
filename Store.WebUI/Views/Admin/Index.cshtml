@@ -1,0 +1,81 @@
+﻿@model Store.WebUI.Models.ProductCategoryListViewModel
+
+    @{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div>All Categories</div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-condensed table-bordered">
+                <tr>
+                    <th class="text-right">ID</th>
+                    <th>Name</th>
+                </tr>
+                @foreach (var item in Model.productCategories)
+                {
+                <tr>
+                    <td class="text-right">@item.Id</td>
+                    <td>
+                        @Html.ActionLink(item.Name, "EditCategory", new { item.Id })
+                    </td>
+                    <td class="text-center">
+                        @using (Html.BeginForm("DeleteCategory", "Admin"))
+                        {
+                        @Html.Hidden("Id", item.Id)
+                        <input type="submit"
+                               class="btn btn-default btn-xs"
+                               value="Delete" />
+                        }
+                    </td>
+                </tr>
+                }
+            </table>
+        </div>
+        <div class="panel-footer">
+            @Html.ActionLink("Add a New Category", "CreateCategory", null,
+            new{ @class="btn btn-default"})
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div>All Products</div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-condensed table-bordered">
+                <tr>
+                    <th class="text-right">ID</th>
+                    <th>Name</th>
+                    <th class="text-right">Price</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+                @foreach (var item in Model.products)
+                {
+                <tr>
+                    <td class="text-right">@item.ProductId</td>
+                    <td>
+                        @Html.ActionLink(item.Name, "EditProduct", new { item.ProductId })
+                    </td>
+                    <td class="text-right">@item.Price.ToString("c")</td>
+                    <td class="text-center">
+                        @using (Html.BeginForm("DeleteProduct", "Admin"))
+                        {
+                        @Html.Hidden("ProductId", item.ProductId)
+                        <input type="submit"
+                               class="btn btn-default btn-xs"
+                               value="Delete" />
+                        }
+                    </td>
+                </tr>
+                }
+            </table>
+        </div>
+        <div class="panel-footer">
+            @Html.ActionLink("Add a New Product", "CreateProduct", null,
+            new{ @class="btn btn-default"})
+        </div>
+    </div>

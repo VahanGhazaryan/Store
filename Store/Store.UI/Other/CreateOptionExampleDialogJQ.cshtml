@@ -1,0 +1,21 @@
+﻿@model Store.UI.Models.ProductPropertyViewModel
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <a href="#" id="newvalue" class="btn btn-primary btn-xs">New value</a>
+        </div>
+        <ol>
+        </ol>
+    <p><input type="submit" class="btn btn-primary btn-xs"  value="Save" /></p>
+    }
+</div>
+
+<script type="text/javascript">
+    $("#newvalue").click(function () {
+        $(document).find('ol').append('<li>' + '<input type="text" name="values" id="values" />' + '</li>')
+    });
+</script>
+
+
